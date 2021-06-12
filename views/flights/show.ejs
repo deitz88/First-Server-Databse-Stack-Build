@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title %></title>
+</head>
+<body>
+  <nav>
+    <a href="/flights/new" <%- title === 'Add Flight' %>>ADD FLIGHT</a>
+    <a href="/flights" <%- title === 'All Flights' %>>ALL FLIGHTS</a>
+  </nav>
+  <main>
+    <h1>Flight Details</h1>
+    
+<section id="show-page">
+  <div id='airline'><strong>Airline: </strong></div>
+  <div id='lineName'><%= flight.airline %></div><br>
+  <div id='airport'><strong>Airport:</strong> </div>
+  <div id='portName'><%= flight.airport %></div><br>
+  <div id='flightNo'><strong>Flight Number:</strong> </div>
+  <div id='flightNoVal'><%= flight.flightNo %></div><br>
+  <div id='departsDate'><strong>Departure Date: </strong></div>
+  <div id='departs'><%= flight.departs %></div><br>
+</section>
+
+<br><br><h2>Destinations</h2>
+<form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <!-- <label>Destination:</label>
+  <textarea name="content"></textarea><br> -->
+  <label>Airport:</label>
+ 
+  <select name="airport" id="arrivalSelect">
+    <option value="Atlanta (ATL)">ATL</option>
+    <option value="Dallas FootWorth (DFW)">DFW</option>
+    <option value="Denver (DEN)">DEN</option>
+    <option value="Los Angles (LAX)">LAX</option>
+    <option value="San Francisco(SAN)">SAN</option>
+  </select>
+  <label>Arrival Date:<br><br>
+    <input type="date" name="arrival">
+</label>
+  <input type="submit" value="Add Destination">
+
+  <br>
+  <br>
+  
+  <% if (flight.destinations.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date Created</th>
+          <th>Airport</th>
+          <th>Date of Destination</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.destinations.forEach(function(f) { %>
+          <tr>
+            <td><%= f.createdAt.toLocaleDateString() %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.arrival %>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Destinations Available</h5>
+  <% } %>
+
+</main>
+</body>
+</html>
+
+
+
+<!-- 
+<label>Airport:</label>
+<select name="rating"></select>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+   <input type="submit" value="Add Review">
+</select> -->

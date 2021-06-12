@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Add Flight</title>
+</head>
+<body>
+    <a href="/flights">BACK TO ALL FLIGHTS</a>
+    <h1>Enter a New Flight</h1>
+    <form action="/flights" method="POST">
+        <label>Airline:
+            <select name="airline">
+                <option value="American">American</option>
+                <option value="Delta">Delta</option>
+                <option value="Southwest">Southwest</option>
+                <option value="United">United</option>
+            </select>
+        </label><br><br>
+        <label>Airport:
+            <select name="airport">
+                <option value="Atlanta (ATL)">ATL</option>
+                <option value="Dallas FootWorth (DFW)">DFW</option>
+                <option value="Denver (DEN)">DEN</option>
+                <option value="Los Angles (LAX)">LAX</option>
+                <option value="San Francisco(SAN)">SAN</option>
+            </select><br><br>
+            <label>Flight Number:
+                <input type="text" name="flightNo">
+            </label><br>
+            <h6>*Value must be between 10 and 9999</h6>
+            <label>Departure Date:
+                <input type="date" name="departs">
+            </label><br>
+            <h6>*If left empty, default will be one year from creation date</h6>
+            <input type="submit" value="Add Flight">
+        </form>
+        <br><br>
+        <br><br>
+        <br><br>
+        <!-- <h5>If a values above box are not completed - page will return blank form, and not save the flight</h5> -->
+  </body>
+</html>
