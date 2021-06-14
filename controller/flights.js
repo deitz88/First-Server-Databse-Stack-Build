@@ -5,7 +5,8 @@ module.exports = {
     new: newFlight,
     create,
     show,
-    arrCreate
+    arrCreate,
+    delete: deleteFlight
 }
 
 function newFlight(req, res){
@@ -20,20 +21,11 @@ function index(req, res) {
     });
   }
 
-//   function create(req, res) {
-//     Flight.create(req.body, function(err, doc){
-//         if(err) return res.render('flights/new');
-//         //the response should always be in callback function i.e. the redirect. (res)
-//         res.redirect('flights/');
-//     })
-// }
 function show(req, res) {
   Flight.findById(req.params.id, function(err, flight) {
     res.render('flights/show', { title: 'Flight Detail', flight });
   });
 }
-
-
 
 function create(req, res) {
   const flight = new Flight(req.body);
@@ -52,3 +44,10 @@ function arrCreate(req, res) {
     res.redirect('/flights:id');
   })
 };
+
+function deleteFlight(req, res) {
+  Flight.findByIdAndDelete(req.params.id, function(err, flight) {
+    console.log('deleting button works in flights router')
+      res.redirect(`/flights/`);
+    });
+  };

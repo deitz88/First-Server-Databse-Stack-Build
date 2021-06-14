@@ -1,7 +1,8 @@
+const { findOneAndDelete } = require('../models/flight');
 const Flight = require('../models/flight')
 
 module.exports = {
-create
+create,
 }
 
 function create(req, res) {

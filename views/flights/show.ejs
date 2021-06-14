@@ -24,13 +24,15 @@
   <div id='flightNoVal'><%= flight.flightNo %></div><br>
   <div id='departsDate'><strong>Departure Date: </strong></div>
   <div id='departs'><%= flight.departs %></div><br>
+  <form id="delete-flight-form" method="POST"
+  action="/flights/<%= flight._id %>">
+  <input type="submit" value="Delete Flight"><br>
+  </form>
 </section>
 
 <br><br><h2>Destinations</h2>
 <form id="add-destination-form" method="POST"
   action="/flights/<%= flight._id %>/destinations">
-  <!-- <label>Destination:</label>
-  <textarea name="content"></textarea><br> -->
   <label>Airport:</label>
  
   <select name="airport" id="arrivalSelect">
@@ -39,11 +41,11 @@
     <option value="Denver (DEN)">DEN</option>
     <option value="Los Angles (LAX)">LAX</option>
     <option value="San Francisco(SAN)">SAN</option>
-  </select>
-  <label>Arrival Date:<br><br>
+  </select><br><br>
+  <label>Arrival Date:
     <input type="date" name="arrival">
-</label>
-  <input type="submit" value="Add Destination">
+</label><br><br>
+  <input type="submit" value="Add Destination"><br>
 
   <br>
   <br>
@@ -74,15 +76,3 @@
 </main>
 </body>
 </html>
-
-
-
-<!-- 
-<label>Airport:</label>
-<select name="rating"></select>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-   <input type="submit" value="Add Review">
-</select> -->

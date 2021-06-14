@@ -33,14 +33,15 @@ const flightSchema = new Schema({
       },
    flightNo: {
       type: Number,
-      min: [10, 'Must be between 10 and 9999, got {VALUE}'],
-      max: [9999, 'Must be between 10 and 9999, got {VALUE}']
+      // min: [10, 'Must be between 10 and 9999, got {VALUE}'],
+      // max: [9999, 'Must be between 10 and 9999, got {VALUE}']
       },
    departs: {
       type: Date,
       // default: 
     },
-    destinations: [destinationSchema]
+    destinations: [destinationSchema],
+   //  default: Date.now
    },  
    {
    timestamps: true
