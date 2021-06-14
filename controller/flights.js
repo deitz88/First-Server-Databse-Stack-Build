@@ -1,4 +1,5 @@
 const Flight = require('../models/flight')
+const Ticket = require('../models/ticket')
 
 module.exports = {
     index,
@@ -21,11 +22,11 @@ function index(req, res) {
     });
   }
 
-function show(req, res) {
-  Flight.findById(req.params.id, function(err, flight) {
-    res.render('flights/show', { title: 'Flight Detail', flight });
-  });
-}
+// function show(req, res) {
+//   Flight.findById(req.params.id, function(err, flight) {
+//     res.render('flights/show', { title: 'Flight Detail', flight });
+//   });
+// }
 
 function create(req, res) {
   const flight = new Flight(req.body);
@@ -46,8 +47,19 @@ function arrCreate(req, res) {
 };
 
 function deleteFlight(req, res) {
-  Flight.findByIdAndDelete(req.params.id, function(err, flight) {
+  Flight.findByIdAndDelete(req.params.id, function(err, res) {
     console.log('deleting button works in flights router')
       res.redirect(`/flights/`);
     });
   };
+
+  function show(req, res) {
+    Flight.findById(req.params.id).populate('ticket').exec(function(err, flight) { 
+        Ticket.find(
+          {_id: {$nin: flight.ticket}},
+          function(err, ticket){
+            res.render('flights/show', { title: 'Flight Detail', flight, ticket});
+          }
+        )
+      })
+  }

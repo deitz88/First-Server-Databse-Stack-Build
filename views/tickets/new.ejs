@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Add Ticket</title>
+</head>
+<body>
+    <nav>    
+        <a href="/flights/new" <%- title === 'Add Flight' %>>ADD FLIGHT</a>
+        <a href="/flights" <%- title === 'All Flights' %>>ALL FLIGHTS</a>
+    </nav>
+
+<p>Please Make Sure Ticket Is Not Already In Use
+  <select>
+    <% tickets.forEach(function(t) { %>
+      <option><%= t.seat %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-ticket" action="/tickets" method="POST">
+  <label>Seat:</label>
+  <input type="text" name="seat">
+  <label>Price:</label>
+  <input type="number" name="price">
+  <input type="submit" value="Add Ticket">
+</form>
+<br>
+<h6>*Seat value must begin with A, B, C, D, E, or F and have avalue of 1-99</h6>
+
+</body>
+</html>

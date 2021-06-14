@@ -9,6 +9,13 @@ a {
 h6 {
   color: red;
 }
+nav {
+font-size: small;
+color: green;
+padding: 5px;
+margin: auto, 100px;
+font-style: italic;
+}
 
 /* #add-destination-form {
   display: grid;

@@ -11,6 +11,7 @@
   <nav>
     <a href="/flights/new" <%- title === 'Add Flight' %>>ADD FLIGHT</a>
     <a href="/flights" <%- title === 'All Flights' %>>ALL FLIGHTS</a>
+    <a href="/tickets/new" <%- title === 'Add Ticket' %>>ADD TICKET</a>
   </nav>
   <main>
     <h1>Flight Details</h1>
@@ -29,6 +30,25 @@
   <input type="submit" value="Delete Flight"><br>
   </form>
 </section>
+<div>Tickets:</div>
+ <ul>
+<% flight.ticket.forEach(t =>{%>
+  <%=t.seat  %>,
+<% }) %> 
+
+ </ul>
+  <!-- end t list -->
+</section>
+<!-- add to cast form below this comment -->
+<form action="/flights/<%=flight._id%>/tickets" id="add-seat-to-flight" method="POST">
+  <select name="ticketId" id="">
+    <% ticket.forEach(t => { %>
+     <option value="<%=t._id%>"><%=t.seat%></option>
+    <% }) %>
+  </select>
+  <button type='submit'>Add Ticket to Flight</button>
+  </form>
+</form>
 
 <br><br><h2>Destinations</h2>
 <form id="add-destination-form" method="POST"
