@@ -31,11 +31,13 @@ th{
   font-family: 'Crimson Text', serif;
   display: inline;
   padding-right: 30px;
+  padding-left: 20px;
 }
 td{
   font-family: 'Crimson Text', serif;
-  display: inline;
+  display: inline-block;
   padding-right: 30px;
+  padding-left: 20px;
 }
 option{
   font-family: 'Crimson Text', serif;

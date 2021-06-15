@@ -34,12 +34,12 @@ module.exports = {
   function deleteTicket(req, res) {
     Ticket.findByIdAndDelete(req.params.id, function(err) {
       console.log('deleting button works in flights router')
-        res.redirect('/tickets');
+        res.redirect('/tickets/index');
       });
     };
     
     function index(req, res) {
-        Ticket.findById(req.params.id);
-            res.render('tickets', { title: 'Tickets'});
-    };        
-      
+        Ticket.find({}, function (err, tickets) {
+            res.render('tickets/index', { title: 'Add Ticket', tickets});
+          })
+        }
