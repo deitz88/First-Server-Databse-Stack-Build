@@ -34,7 +34,7 @@ module.exports = {
   function deleteTicket(req, res) {
     Ticket.findByIdAndDelete(req.params.id, function(err) {
       console.log('deleting button works in flights router')
-        res.redirect('/tickets/index');
+        res.redirect('/tickets');
       });
     };
     
