@@ -1,10 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-color: rosybrown;
 }
 
 a {
-  color: #00B7FF;
+  /* color: #00B7FF; */
+  color: rosybrown;
+  display: inline;
+  padding-right: 30px;
 }
 h6 {
   color: red;
@@ -15,6 +19,54 @@ color: green;
 padding: 5px;
 margin: auto, 100px;
 font-style: italic;
+background-image: linear-gradient(to right, rgba(211, 211, 211, 0.463), lightgray);
+padding-bottom: 10px ;
+
+}
+h1{
+  font-family: 'Crimson Text', serif;
+}
+
+th{
+  font-family: 'Crimson Text', serif;
+  display: inline;
+  padding-right: 30px;
+}
+td{
+  font-family: 'Crimson Text', serif;
+  display: inline;
+  padding-right: 30px;
+}
+option{
+  font-family: 'Crimson Text', serif;
+  padding-right: 30px;
+}
+label{
+  font-family: 'Crimson Text', serif;
+  font-size: medium;
+}
+select{
+  font-family: 'Crimson Text', serif;
+  margin-left: 20px;
+}
+input{
+  margin-left: 20px;
+}
+#ticket-input{
+  margin-left: 14px;
+}
+#ticket-btn{
+margin: auto;
+}
+#flight-btn{
+  margin: auto;
+}
+img{
+  display: block;
+  float: right;
+  height: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* #add-destination-form {

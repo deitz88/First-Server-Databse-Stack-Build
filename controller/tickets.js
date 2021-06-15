@@ -4,7 +4,9 @@ const Ticket = require('../models/ticket');
 module.exports = {
     new: newTicket,
     create,
-    addToFlight
+    addToFlight,
+    delete: deleteTicket,
+    index
   };
   
   function create(req, res) {
@@ -23,9 +25,21 @@ module.exports = {
 
     Flight.findById(req.params.id, function(err, flight){
       flight.ticket.push(req.body.ticketId);
-      //after selecting and adding, need to save.
       flight.save(function(err){
         res.redirect(`/flights/${flight._id}`)
       })
     })
   };
+
+  function deleteTicket(req, res) {
+    Ticket.findByIdAndDelete(req.params.id, function(err) {
+      console.log('deleting button works in flights router')
+        res.redirect('/tickets');
+      });
+    };
+    
+    function index(req, res) {
+        Ticket.findById(req.params.id);
+            res.render('tickets', { title: 'Tickets'});
+    };        
+      

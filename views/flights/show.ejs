@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title><%= title %></title>
-</head>
+<%- include('../partials/header') %>
 <body>
   <nav>
-    <a href="/flights/new" <%- title === 'Add Flight' %>>ADD FLIGHT</a>
-    <a href="/flights" <%- title === 'All Flights' %>>ALL FLIGHTS</a>
-    <a href="/tickets/new" <%- title === 'Add Ticket' %>>ADD TICKET</a>
+    <a href="/flights/new" <%- title === 'Add Flight' %>>Add Flight</a>
+    <a href="/flights" <%- title === 'All Flights' %>>All Flights</a>
+    <a href="/tickets/new" <%- title === 'Add Ticket' %>>Add Ticket</a>
+    <a href="/tickets">Tickets</a>
+    <img src="/images/Aeroplane5.svg">
   </nav>
   <main>
     <h1>Flight Details</h1>

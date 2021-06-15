@@ -22,12 +22,6 @@ function index(req, res) {
     });
   }
 
-// function show(req, res) {
-//   Flight.findById(req.params.id, function(err, flight) {
-//     res.render('flights/show', { title: 'Flight Detail', flight });
-//   });
-// }
-
 function create(req, res) {
   const flight = new Flight(req.body);
   flight.save(function(err) { 
@@ -47,9 +41,9 @@ function arrCreate(req, res) {
 };
 
 function deleteFlight(req, res) {
-  Flight.findByIdAndDelete(req.params.id, function(err, res) {
+  Flight.findByIdAndDelete(req.params.id, function(err) {
     console.log('deleting button works in flights router')
-      res.redirect(`/flights/`);
+      res.redirect('/flights');
     });
   };
 
