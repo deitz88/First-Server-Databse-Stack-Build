@@ -23,9 +23,10 @@
           <td><%= t.seat %></td>
           <td><%= t.price %></td>
           <td>
-          <form id="delete-ticket-form" method="POST"
-          action="/tickets/<%= t._id %>">
-          <input type="submit" value="X">
+            <form id="delete-ticket-form" method="POST"
+            action="/tickets/<%= t._id %>">
+                <input type="submit" value="X">
+            </form>
         </td>
         </tr> 
           <% }); %> 

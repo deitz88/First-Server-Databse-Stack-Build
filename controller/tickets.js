@@ -22,7 +22,6 @@ module.exports = {
   }
   
   function addToFlight(req, res){
-
     Flight.findById(req.params.id, function(err, flight){
       flight.ticket.push(req.body.ticketId);
       flight.save(function(err){
@@ -32,8 +31,8 @@ module.exports = {
   };
 
   function deleteTicket(req, res) {
-    Ticket.findByIdAndDelete(req.params.id, function(err) {
-      console.log('deleting button works in flights router')
+    Ticket.findByIdAndDelete (req.params.id, function(err) {
+      console.log('deleting button works in Tickets router')
         res.redirect('/tickets');
       });
     };

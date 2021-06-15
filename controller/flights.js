@@ -48,7 +48,9 @@ function deleteFlight(req, res) {
   };
 
   function show(req, res) {
-    Flight.findById(req.params.id).populate('ticket').exec(function(err, flight) { 
+    Flight.findById(req.params.id)
+          .populate('ticket')
+          .exec(function(err, flight) { 
         Ticket.find(
           {_id: {$nin: flight.ticket}},
           function(err, ticket){
