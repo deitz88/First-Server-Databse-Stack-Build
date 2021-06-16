@@ -33,9 +33,13 @@ th{
   padding-right: 30px;
   padding-left: 20px;
 }
+tr{
+  display: inline;
+  align-items: right;
+  justify-content: right;
+}
 td{
   font-family: 'Crimson Text', serif;
-  display: inline-block;
   padding-right: 30px;
   padding-left: 20px;
 }
